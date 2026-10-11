@@ -1,0 +1,36 @@
+{
+  "models": {
+    "Logistic Regression": {
+      "accuracy": 0.9231,
+      "precision": 0.6334,
+      "recall": 0.8522,
+      "f1": 0.7267,
+      "false_positive_rate": 0.0673,
+      "roc_auc": 0.9263
+    },
+    "Random Forest": {
+      "accuracy": 0.9807,
+      "precision": 0.9935,
+      "recall": 0.8444,
+      "f1": 0.9129,
+      "false_positive_rate": 0.0008,
+      "roc_auc": 0.9185
+    },
+    "Isolation Forest (anomaly)": {
+      "accuracy": 0.9521,
+      "precision": 0.7875,
+      "recall": 0.8233,
+      "f1": 0.805,
+      "false_positive_rate": 0.0303,
+      "roc_auc": 0.9203
+    }
+  },
+  "replay": {
+    "campaigns": 6,
+    "campaigns_detected": 6,
+    "correct_attack_type": 6,
+    "false_alerts": 0,
+    "total_alerts": 6,
+    "mean_time_to_detect_s": 17.0
+  }
+}
