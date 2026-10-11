@@ -135,7 +135,5 @@ SIEM integration (Splunk/ELK) · streaming with Kafka · deep-learning sequence 
 ## What I learned
 Imbalanced classification, why precision/recall matter more than accuracy in security, supervised vs unsupervised detection, sklearn Pipelines (no train/serve skew), turning model output into actionable alerts, REST API design and testing.
 
-## Author
-**<Your Name>** · <degree / college> · [LinkedIn](https://linkedin.com/in/<you>) · [GitHub](https://github.com/<you>)
 
 MIT License
