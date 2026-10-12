@@ -1,0 +1,8 @@
+class              precision    recall        f1   support
+BruteForce             0.989     0.813     0.893       225
+DataExfiltration       0.993     0.900     0.944       150
+DoS                    1.000     0.850     0.919       300
+Normal                 0.979     0.999     0.989      6600
+PortScan               0.989     0.831     0.903       225
+macro avg              0.990     0.879     0.930      7500
+weighted avg           0.981     0.981     0.980      7500

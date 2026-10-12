@@ -1,0 +1,39 @@
+$ python main.py
+==========================================================================
+ AI-Powered Cybersecurity Threat Detection System
+==========================================================================
+[1/5] Loading data ...
+      30,000 flows, 14 columns | classes: {'Normal': 26400, 'DoS': 1200, 'BruteForce': 900, 'PortScan': 900, 'DataExfiltration': 600}
+[2/5] Training + evaluating models ...
+  train=22,500  test=7,500  attack share=12.0%
+  Logistic Regression  acc=0.923 prec=0.633 recall=0.852 f1=0.727 auc=0.926
+  Random Forest        acc=0.981 prec=0.994 recall=0.844 f1=0.913 auc=0.918
+  Isolation Forest     acc=0.952 prec=0.787 recall=0.823 f1=0.805 auc=0.920   (trained on normal traffic only)
+  unseen attack (StealthC2): Random Forest flags 74% (but with only 0.49 avg confidence, as wrong attack types); Isolation Forest flags 80%
+  full detector verdict on it: 80% UnknownAnomaly, 17% missed
+  3-fold CV F1 (Random Forest): 0.912 +/- 0.004
+[3/5] Drawing evaluation figures ...
+[4/5] Replaying one hour of live traffic with hidden attacks ...
+      5,602 flows scored, 789 flagged
+
+ ---------------------------- SOC ALERT FEED ----------------------------
+ [ALERT-001] MEDIUM   UnknownAnomaly    src=203.0.113.66    flows=164  conf=0.42  09:04:14-09:55:44
+            MITRE T1071 Application Layer Protocol (suspected C2)  ->  Investigate host, check for beaconing / malware
+ [ALERT-002] CRITICAL DoS               src=45.133.1.7      flows=200  conf=0.97  09:10:00-09:13:58
+            MITRE T1498 Network Denial of Service  ->  Rate-limit / block source at firewall, enable SYN cookies
+ [ALERT-003] MEDIUM   PortScan          src=185.220.4.21    flows=83   conf=0.96  09:18:00-09:21:46
+            MITRE T1046 Network Service Discovery  ->  Block source, review exposed services
+ [ALERT-004] CRITICAL BruteForce        src=91.240.118.9    flows=165  conf=0.99  09:27:00-09:34:58
+            MITRE T1110 Brute Force  ->  Block source, enforce MFA, lock affected accounts
+ [ALERT-005] CRITICAL DataExfiltration  src=192.168.1.23    flows=22   conf=0.98  09:41:02-09:49:29
+            MITRE T1048 Exfiltration Over Alternative Protocol  ->  Isolate host, inspect transferred data, rotate credentials
+ [ALERT-006] HIGH     BruteForce        src=198.51.100.4    flows=20   conf=0.99  09:50:24-09:57:46
+            MITRE T1110 Brute Force  ->  Block source, enforce MFA, lock affected accounts
+ -------------------------------------------------------------------------
+      campaigns detected: 6/6  |  correct attack type: 6/6  |  false alerts: 0  |  mean time-to-detect: 17.0 s
+[5/5] Saving ...
+--------------------------------------------------------------------------
+ Random Forest  accuracy=0.981  precision=0.994  recall=0.844  F1=0.913
+ model  -> models/threat_detector.joblib   |   figures -> outputs/figures/   |   alerts -> outputs/alerts.csv
+ finished in 28.0s
+==========================================================================

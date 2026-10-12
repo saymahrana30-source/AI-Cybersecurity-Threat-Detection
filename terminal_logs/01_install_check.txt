@@ -1,0 +1,2 @@
+$ python -c "import sklearn, pandas, numpy, flask; print('OK', 'scikit-learn', sklearn.__version__, 'pandas', pandas.__version__)"
+OK scikit-learn 1.8.0 pandas 3.0.2

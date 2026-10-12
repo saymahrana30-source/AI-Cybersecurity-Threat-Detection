@@ -1,0 +1,13 @@
+# terminal 1:  python -m src.api   ->  running on http://127.0.0.1:5000
+# terminal 2:
+$ curl -s localhost:5000/health
+{"classes":["BruteForce","DataExfiltration","DoS","Normal","PortScan"],"status":"ok"}
+
+$ curl -s -X POST localhost:5000/predict -H 'Content-Type: application/json' -d '{"service":"https","src_bytes":600,"dst_bytes":9000,"conn_per_min":4}'
+{"anomalous":false,"anomaly_score":0.3637,"attack_type":"Normal","confidence":0.9249,"threat_detected":false,"threat_score":0.0751,"verdict":"Normal"}
+
+$ curl -s -X POST localhost:5000/predict -H 'Content-Type: application/json' -d '{"unique_dst_ports":150,"conn_per_min":60,"syn_ratio":0.5,"conn_state":"REJ","src_bytes":70,"dst_bytes":0,"duration":0.05}'
+{"anomalous":true,"anomaly_score":0.7053,"attack_type":"PortScan","confidence":0.6011,"threat_detected":true,"threat_score":0.7987,"verdict":"PortScan"}
+
+$ curl -s -X POST localhost:5000/predict -H 'Content-Type: application/json' -d '{"conn_per_min":"lots"}'
+{"error":"'conn_per_min' must be a non-negative number"}

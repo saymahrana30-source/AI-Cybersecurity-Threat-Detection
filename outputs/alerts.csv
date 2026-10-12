@@ -1,0 +1,7 @@
+alert_id,src_ip,attack_type,severity,flows,avg_confidence,first_seen,last_seen,mitre,recommended_action
+ALERT-001,203.0.113.66,UnknownAnomaly,MEDIUM,164,0.417,2026-03-02 09:04:14.788,2026-03-02 09:55:44.002,T1071 Application Layer Protocol (suspected C2),"Investigate host, check for beaconing / malware"
+ALERT-002,45.133.1.7,DoS,CRITICAL,200,0.972,2026-03-02 09:10:00.024,2026-03-02 09:13:58.721,T1498 Network Denial of Service,"Rate-limit / block source at firewall, enable SYN cookies"
+ALERT-003,185.220.4.21,PortScan,MEDIUM,83,0.956,2026-03-02 09:18:00.395,2026-03-02 09:21:46.026,T1046 Network Service Discovery,"Block source, review exposed services"
+ALERT-004,91.240.118.9,BruteForce,CRITICAL,165,0.987,2026-03-02 09:27:00.073,2026-03-02 09:34:58.771,T1110 Brute Force,"Block source, enforce MFA, lock affected accounts"
+ALERT-005,192.168.1.23,DataExfiltration,CRITICAL,22,0.982,2026-03-02 09:41:02.536,2026-03-02 09:49:29.295,T1048 Exfiltration Over Alternative Protocol,"Isolate host, inspect transferred data, rotate credentials"
+ALERT-006,198.51.100.4,BruteForce,HIGH,20,0.992,2026-03-02 09:50:24.089,2026-03-02 09:57:46.854,T1110 Brute Force,"Block source, enforce MFA, lock affected accounts"

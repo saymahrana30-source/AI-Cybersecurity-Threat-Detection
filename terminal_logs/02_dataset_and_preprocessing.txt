@@ -1,0 +1,23 @@
+$ python explore.py
+=== DATASET PREVIEW (first 5 network flows) ===
+timestamp protocol service conn_state  duration  src_bytes  dst_bytes  packet_count  syn_ratio  unique_dst_ports  conn_per_min  login_attempts  failed_logins  label
+ 00:00:03      tcp    http         SF     3.056       2945        684             9      0.076                 1             5               0              0 Normal
+ 00:00:04      tcp   https         SF     5.591        111      27139            20      0.000                 1             2               0              0 Normal
+ 00:00:07      tcp   https         SF     1.010        737      28599            23      0.038                 7             7               0              0 Normal
+ 00:00:17      tcp   other       RSTO     0.485       1127       3038             6      0.144                 1             3               0              0 Normal
+ 00:00:23      tcp   other         SF     4.560        785         92            42      0.041                 1            33               0              0    DoS
+
+shape: (30000, 15)   missing values: 0
+
+=== CLASS BALANCE ===
+label
+Normal              26400
+DoS                  1200
+BruteForce            900
+PortScan              900
+DataExfiltration      600
+
+=== PREPROCESSING ===
+raw columns      : 14   -> after feature engineering: 16
+engineered cols  : ['byte_ratio', 'bytes_per_sec', 'avg_packet_size', 'failed_login_ratio']
+model-ready matrix: 30,000 rows x 27 features (log-scaled, standardised, one-hot)

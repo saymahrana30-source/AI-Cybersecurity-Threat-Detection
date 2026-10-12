@@ -1,0 +1,74 @@
+[
+  {
+    "alert_id":"ALERT-001",
+    "src_ip":"203.0.113.66",
+    "attack_type":"UnknownAnomaly",
+    "severity":"MEDIUM",
+    "flows":164,
+    "avg_confidence":0.417,
+    "first_seen":"2026-03-02 09:04:14.788",
+    "last_seen":"2026-03-02 09:55:44.002",
+    "mitre":"T1071 Application Layer Protocol (suspected C2)",
+    "recommended_action":"Investigate host, check for beaconing \/ malware"
+  },
+  {
+    "alert_id":"ALERT-002",
+    "src_ip":"45.133.1.7",
+    "attack_type":"DoS",
+    "severity":"CRITICAL",
+    "flows":200,
+    "avg_confidence":0.972,
+    "first_seen":"2026-03-02 09:10:00.024",
+    "last_seen":"2026-03-02 09:13:58.721",
+    "mitre":"T1498 Network Denial of Service",
+    "recommended_action":"Rate-limit \/ block source at firewall, enable SYN cookies"
+  },
+  {
+    "alert_id":"ALERT-003",
+    "src_ip":"185.220.4.21",
+    "attack_type":"PortScan",
+    "severity":"MEDIUM",
+    "flows":83,
+    "avg_confidence":0.956,
+    "first_seen":"2026-03-02 09:18:00.395",
+    "last_seen":"2026-03-02 09:21:46.026",
+    "mitre":"T1046 Network Service Discovery",
+    "recommended_action":"Block source, review exposed services"
+  },
+  {
+    "alert_id":"ALERT-004",
+    "src_ip":"91.240.118.9",
+    "attack_type":"BruteForce",
+    "severity":"CRITICAL",
+    "flows":165,
+    "avg_confidence":0.987,
+    "first_seen":"2026-03-02 09:27:00.073",
+    "last_seen":"2026-03-02 09:34:58.771",
+    "mitre":"T1110 Brute Force",
+    "recommended_action":"Block source, enforce MFA, lock affected accounts"
+  },
+  {
+    "alert_id":"ALERT-005",
+    "src_ip":"192.168.1.23",
+    "attack_type":"DataExfiltration",
+    "severity":"CRITICAL",
+    "flows":22,
+    "avg_confidence":0.982,
+    "first_seen":"2026-03-02 09:41:02.536",
+    "last_seen":"2026-03-02 09:49:29.295",
+    "mitre":"T1048 Exfiltration Over Alternative Protocol",
+    "recommended_action":"Isolate host, inspect transferred data, rotate credentials"
+  },
+  {
+    "alert_id":"ALERT-006",
+    "src_ip":"198.51.100.4",
+    "attack_type":"BruteForce",
+    "severity":"HIGH",
+    "flows":20,
+    "avg_confidence":0.992,
+    "first_seen":"2026-03-02 09:50:24.089",
+    "last_seen":"2026-03-02 09:57:46.854",
+    "mitre":"T1110 Brute Force",
+    "recommended_action":"Block source, enforce MFA, lock affected accounts"
+  }
+]
